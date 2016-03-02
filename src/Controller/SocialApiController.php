@@ -51,16 +51,16 @@ class SocialApiController extends ControllerBase
 
     $tasksList = $this->localTaskManager->getDefinitions();
 
-    $dependencies = array();
+    $plugins = array();
 
     foreach($tasksList as $key => $task) {
       if($task['base_route'] == $route) {
-        $tasksList[$key]['route_name'] = $task['route_name'];
-        $tasksList[$key]['title'] = $task['title']->render();
+        $plugins[$key]['route_name'] = $task['route_name'];
+        $plugins[$key]['title'] = $task['title']->render();
       }
     }
 
-    $build['#plugins'] = $dependencies;
+    $build['#plugins'] = $plugins;
 
     return $build;
   }
