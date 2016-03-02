@@ -1,7 +1,7 @@
 facebook_plugins.settings:
   path: '/admin/config/social-api/facebook'
   defaults:
-    _title: Facebook
+    _title: Facebook plugins
     _controller: Drupal\social_api\Controller\SocialApiController::pluginsPage
     route: facebook_plugins.settings
   requirements:
