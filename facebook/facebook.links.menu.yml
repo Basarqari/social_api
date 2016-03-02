@@ -1,0 +1,4 @@
+facebook_plugins.settings:
+  title: Facebook Plugins
+  route_name: facebook_plugins.settings
+  parent: social_api.admin_config

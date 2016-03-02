@@ -1,0 +1,4 @@
+social_api.admin_config:
+  title: Social API Settings
+  route_name: social_api.admin_config
+  parent: system.admin_config
