@@ -1,6 +1,7 @@
 <?php
 
 /**
+ * @file
  * Contains Drupal\social_api\Controller\SocialApiController
  */
 
@@ -18,8 +19,7 @@ class SocialApiController extends ControllerBase
   private $localTaskManager;
 
   /**
-   * @param ContainerInterface $container
-   * @return static
+   * @inheritdoc
    */
   public static function create(ContainerInterface $container)
   {
@@ -37,28 +37,31 @@ class SocialApiController extends ControllerBase
     $this->localTaskManager = $localTaskManager;
   }
 
+  /**
+   * Render the list of plugins for a social network
+   *
+   * @param string $route
+   * @return array
+   */
   public function pluginsPage($route)
   {
     $build = [
       '#theme' => 'plugins_list',
     ];
 
-    $definitions = $this->localTaskManager->getDefinitions();
+    $tasksList = $this->localTaskManager->getDefinitions();
 
     $dependencies = array();
 
-    foreach($definitions as $key => $definition) {
-      if($definition['base_route'] == $route) {
-        $dependencies[$key]['route_name'] = $definition['route_name'];
-        $dependencies[$key]['title'] = $definition['title']->render();
+    foreach($tasksList as $key => $task) {
+      if($task['base_route'] == $route) {
+        $tasksList[$key]['route_name'] = $task['route_name'];
+        $tasksList[$key]['title'] = $task['title']->render();
       }
     }
 
     $build['#plugins'] = $dependencies;
 
     return $build;
-
-
-    var_dump($dependencies);
   }
 }

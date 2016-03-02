@@ -1,6 +1,8 @@
 <?php
 
-
+/**
+ * implements hook_theme
+ */
 function social_api_theme() {
   return array(
     'plugins_list' => array(
