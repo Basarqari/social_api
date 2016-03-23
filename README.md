@@ -8,5 +8,5 @@ Please Refer-https://www.drupal.org/project/social_api
 
 #Drupal Social Initiative
 
-please refer-https://www.drupal.org/project/social_api
+Social API is a part of Drupal Social Initiave.Please refer-https://www.drupal.org/project/social_api
 
